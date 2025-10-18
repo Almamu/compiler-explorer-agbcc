@@ -1,3 +1,27 @@
+# How to start
+- Install node so compiler explorer can be run
+- Install arm-none-eabi and binutils-arm-none-eabi
+```sh
+sudo apt update
+sudo apt install build-essential binutils-arm-none-eabi gcc-arm-none-eabi
+```
+- Clone [agbcc](https://github.com/SAT-R/agbcc) into any folder
+- Go into the agbcc and install it on /opt/agbcc:
+```sh
+mkdir /opt/agbcc
+./build.sh
+./install /opt/agbcc
+mv /opt/agbcc/tools/agbcc /opt/agbcc
+```
+- Run compiler-explorer and connect to it on port 10240.
+```
+make run
+```
+
+agbcc should be detected and available in the C compilers dropdown
+
+[live demo](https://agbcc-ce.alma.mu)
+
 [![Build Status](https://github.com/compiler-explorer/compiler-explorer/workflows/Compiler%20Explorer/badge.svg)](https://github.com/compiler-explorer/compiler-explorer/actions?query=workflow%3A%22Compiler+Explorer%22)
 [![codecov](https://codecov.io/gh/compiler-explorer/compiler-explorer/branch/main/graph/badge.svg)](https://codecov.io/gh/compiler-explorer/compiler-explorer)
 
@@ -110,9 +134,9 @@ If you want to point it at your own GCC or similar binaries, either edit the `et
 else make a new one with the name `LANG.local.properties`, substituting `LANG` as needed. `*.local.properties` files
 have the highest priority when loading properties.
 
-For a quick and easy way to add local compilers, use the 
-[CE Properties Wizard](etc/scripts/ce-properties-wizard/) which automatically detects and configures compilers 
-for [30+ languages](etc/scripts/ce-properties-wizard/README.md#supported-languages). 
+For a quick and easy way to add local compilers, use the
+[CE Properties Wizard](etc/scripts/ce-properties-wizard/) which automatically detects and configures compilers
+for [30+ languages](etc/scripts/ce-properties-wizard/README.md#supported-languages).
 See [Adding a Compiler](docs/AddingACompiler.md) for more details.
 
 If you want to support multiple compilers and languages like [godbolt.org](https://godbolt.org), you can use the
